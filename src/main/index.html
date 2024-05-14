@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href="img/solarnetwork-favicon.svg"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>
+			SolarNetwork Developer Example: TypeScript Control Toggler
+		</title>
+	</head>
+	<body>
+		<div class="container py-3 px-3 mx-auto">
+			<div class="row g-5">
+				<div class="col-md-4">
+					<div class="p-3">
+						<form id="data-sn-settings">
+							<div class="row">
+								<div class="col">
+									<label for="snHost" class="form-label"
+										>SolarNetwork Host</label
+									>
+									<input
+										type="text"
+										class="form-control"
+										id="snHost"
+										value="https://data.solarnetwork.net"
+									/>
+								</div>
+							</div>
+							<div class="row my-3">
+								<div class="col">
+									<label for="snToken" class="form-label"
+										>SolarNetwork Token</label
+									>
+									<input
+										type="text"
+										class="form-control"
+										id="snToken"
+									/>
+								</div>
+							</div>
+							<div class="row my-3">
+								<div class="col">
+									<label
+										for="snTokenSecret"
+										class="form-label"
+										>SolarNetwork Secret</label
+									>
+									<input
+										type="password"
+										class="form-control"
+										id="snTokenSecret"
+									/>
+								</div>
+							</div>
+							<div class="row my-3">
+								<div class="col">
+									<label for="snNodeId" class="form-label"
+										>Node ID</label
+									>
+									<input
+										type="number"
+										class="form-control"
+										id="snNodeId"
+									/>
+								</div>
+							</div>
+							<div class="row my-3">
+								<div class="col">
+									<label for="snControlId" class="form-label"
+										>Control ID</label
+									>
+									<input
+										type="text"
+										class="form-control"
+										id="snControlId"
+									/>
+								</div>
+							</div>
+							<div class="d-grid my-3">
+								<button
+									type="button"
+									class="btn btn-primary"
+									id="start-stop-button"
+									data-bs-toggle="button"
+									disabled
+								>
+									Start
+								</button>
+							</div>
+						</form>
+					</div>
+					<div
+						id="app-version"
+						class="d-none text-secondary my-3"
+						aria-hidden="true"
+					>
+						<small
+							>Version <span class="data-app-version"></span>.
+							Source on
+							<a
+								href="https://github.com/SolarNetwork/solarnetwork-example/tree/develop/TypeScript/chart-billboard/"
+								class="link-secondary"
+								target="_blank"
+								>GitHub</a
+							>.</small
+						>
+					</div>
+				</div>
+				<main class="col-md-8">
+					<h1>
+						SolarNetwork Developer Example: TypeScript Control
+						Toggler
+					</h1>
+					<p>
+						This is an example app for developers that demonstrates
+						how to use the
+						<a
+							href="https://github.com/SolarNetwork/solarnetwork/wiki/SolarUser-API"
+							target="_blank"
+							>SolarNetwork API</a
+						>
+						with the help of the
+						<a
+							href="https://www.npmjs.com/package/solarnetwork-control-toggler"
+							target="_blank"
+							>solarnetwork-control-toggler</a
+						>
+						JavaScript library to make authenticated API calls to
+						monitor and update a SolarNode control value.
+					</p>
+					<p>
+						Fill in the details in the form and click the
+						<b>Start</b> button to start monitoring the control.
+						Once started, use the <b>Update</b> form to change the
+						value of the control. A spinning indicator will show
+						while the change is still pending.
+					</p>
+					<p>
+						See the
+						<a
+							href="https://github.com/SolarNetwork/solarnetwork-example-ts-control-toggler"
+							target="_blank"
+							>project on Github</a
+						>
+						for more information.
+					</p>
+					<section id="control-info">
+						<form
+							class="row row-cols-lg-auto gx-3 align-items-center my-5"
+						>
+							<div class="col-12">
+								<label
+									for="desired-value"
+									class="visually-hidden"
+									>Desired value</label
+								>
+								<input
+									type="text"
+									class="form-control"
+									id="desired-value"
+									placeholder="Desired value"
+								/>
+							</div>
+							<div class="col-12">
+								<button
+									type="button"
+									class="btn btn-primary"
+									id="update-value-button"
+									disabled
+								>
+									<span
+										id="update-value-spinner"
+										class="spinner-border spinner-border-sm d-none"
+										aria-hidden="true"
+									></span>
+									<span role="status">Update</span>
+								</button>
+							</div>
+						</form>
+						<div
+							class="row row-cols-lg-auto gx-3 align-items-center my-5"
+						>
+							<div class="col-auto fw-bold">Control value:</div>
+							<div class="col" id="control-value"><i>N/A</i></div>
+						</div>
+					</section>
+				</main>
+			</div>
+		</div>
+
+		<script type="module" src="ts/main.ts"></script>
+	</body>
+</html>

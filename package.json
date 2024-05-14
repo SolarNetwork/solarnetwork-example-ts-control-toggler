@@ -1,0 +1,70 @@
+{
+  "name": "solarnetwork-example-typescript-control-toggler",
+  "private": true,
+  "version": "1.0.0",
+  "homepage": "https://go.solarnetwork.net/dev/example/typescript-control-toggler/",
+  "author": {
+    "name": "Matt Magoffin",
+    "email": "matt@solarnetwork.net"
+  },
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SolarNetwork/solarnetwork-example-ts-control-toggler.git"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "ava": {
+    "files": [
+      "src/test/ts/**/*"
+    ],
+    "typescript": {
+      "rewritePaths": {
+        "src/": "lib/"
+      },
+      "compile": "tsc"
+    }
+  },
+  "c8": {
+    "exclude": [
+      "src/test/ts/**"
+    ],
+    "exclude-after-remap": true,
+    "reporter": [
+      "text",
+      "html"
+    ]
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "solarnetwork-api-core": "^2.2.2",
+    "solarnetwork-control-toggler": "^2.1.0"
+  },
+  "devDependencies": {
+    "@ava/typescript": "^5.0.0",
+    "@types/bootstrap": "^5.2.10",
+    "@types/d3-selection": "^3.0.10",
+    "@typescript-eslint/eslint-plugin": "^7.9.0",
+    "@typescript-eslint/parser": "^7.9.0",
+    "ava": "^6.1.3",
+    "c8": "^9.1.0",
+    "eslint": "^8.49.0",
+    "npmversion": "^1.7.0",
+    "sass": "^1.77.1",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.11"
+  },
+  "overrides": {
+    "json5": "2.2.3",
+    "lodash": "4.17.21",
+    "minimist": "1.2.8",
+    "postcss": "8.4.31",
+    "semver": "7.5.4"
+  }
+}
