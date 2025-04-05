@@ -1,5 +1,5 @@
 import "../scss/style.scss";
-import { ControlCallbackFn } from "solarnetwork-control-toggler";
+import { ControlCallbackFn } from "solarnetwork-api-core/tool";
 import { setupSolarNetworkIntegration, start, stop, update } from "./sn.ts";
 import { SnSettingsFormElements } from "./forms";
 import { replaceData } from "./utils";
@@ -64,12 +64,12 @@ startStopButton.addEventListener("click", async (event: Event) => {
 });
 
 const updateButton = document.querySelector<HTMLButtonElement>(
-	"#update-value-button"
+	"#update-value-button",
 )!;
 const desiredValueInput =
 	document.querySelector<HTMLInputElement>("#desired-value")!;
 const updateButtonSpinner = document.querySelector<HTMLElement>(
-	"#update-value-spinner"
+	"#update-value-spinner",
 )!;
 
 updateButton.addEventListener("click", () => {

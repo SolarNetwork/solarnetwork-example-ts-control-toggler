@@ -2,12 +2,12 @@ import {
 	AuthorizationV2Builder,
 	SolarQueryApi,
 	SolarUserApi,
-} from "solarnetwork-api-core/lib/net/index.js";
+} from "solarnetwork-api-core/net";
 import {
 	ControlToggler,
 	ControlCallbackFn,
 	ControlValueType,
-} from "solarnetwork-control-toggler";
+} from "solarnetwork-api-core/tool";
 
 import { SnSettingsFormElements } from "./forms";
 
@@ -27,7 +27,7 @@ export function start(callback: ControlCallbackFn) {
 	const api = new SolarUserApi(url);
 	const auth = new AuthorizationV2Builder(
 		settingsForm.snToken.value,
-		api.environment
+		api.environment,
 	).saveSigningKey(settingsForm.snTokenSecret.value);
 
 	let queryApi: SolarQueryApi | undefined = undefined;
@@ -43,7 +43,7 @@ export function start(callback: ControlCallbackFn) {
 		auth,
 		settingsForm.snNodeId.valueAsNumber,
 		settingsForm.snControlId.value,
-		queryApi
+		queryApi,
 	);
 	toggler.pendingRefreshMs = 1000;
 	toggler.callback = callback;
